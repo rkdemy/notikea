@@ -3,19 +3,19 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 
+import * as env from "./env";
 import { ProductsProvider } from "./context/products_context";
 import { FilterProvider } from "./context/filter_context";
 import { CartProvider } from "./context/cart_context";
 import { UserProvider } from "./context/user_context";
 import { Auth0Provider } from "@auth0/auth0-react";
-// dev-wanq4wlik8tgasm5.au.auth0.com
-// 7wGVKKNwebzCO0eojZr9KeZbqMmca5iA
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <Auth0Provider
-    domain="dev-wanq4wlik8tgasm5.au.auth0.com"
-    clientId="7wGVKKNwebzCO0eojZr9KeZbqMmca5iA"
+    domain={env.REACT_APP_DOMAIN}
+    clientId={env.REACT_APP_CLIENTID}
     redirect_uri={window.location.origin}
     cacheLocation="localstorage"
   >
