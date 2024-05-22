@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { useParams, useHistory, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
-import { single_product_url as url } from "../utils/constants";
 import { formatPrice } from "../utils/helpers";
 import {
   Loading,
@@ -12,7 +11,6 @@ import {
   PageHero,
 } from "../components";
 import styled from "styled-components";
-import Product from "../components/Product";
 import { Link } from "react-router-dom";
 
 const SingleProductPage = () => {

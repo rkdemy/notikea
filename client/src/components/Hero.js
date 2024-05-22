@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import heroBcg from "../assets/renczz_lofi_art_bedroom_with_study_corner_74dc34ba-e247-47f1-a394-77c295b7e237.png";
-import heroBcg2 from "../assets/renczz_lofi_art_bedroom_with_study_corner_946fdbc6-b565-4be8-8734-95b8c3d4b6aa.png";
 import { useProductsContext } from "../context/products_context";
-import Loading from "./Loading";
-import Error from "./Error";
 const Hero = () => {
   const { featured_products: featured } = useProductsContext();
 

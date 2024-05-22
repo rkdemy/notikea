@@ -10,7 +10,7 @@ import {
 } from "../actions";
 
 const filter_reducer = (state, action) => {
-  if (action.type === "LOAD_PRODUCTS") {
+  if (action.type === LOAD_PRODUCTS) {
     let maxPrice = action.payload.map((product) => product.price);
     maxPrice = Math.max(...maxPrice);
     return {
@@ -20,25 +20,25 @@ const filter_reducer = (state, action) => {
       filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
     };
   }
-  if (action.type === "SET_GRIDVIEW") {
+  if (action.type === SET_GRIDVIEW) {
     return {
       ...state,
       grid_view: false,
     };
   }
-  if (action.type === "SET_LISTVIEW") {
+  if (action.type === SET_LISTVIEW) {
     return {
       ...state,
       grid_view: true,
     };
   }
-  if (action.type === "UPDATE_SORT") {
+  if (action.type === UPDATE_SORT) {
     return {
       ...state,
       sort: action.payload,
     };
   }
-  if (action.type === "SORT_PRODUCTS") {
+  if (action.type === SORT_PRODUCTS) {
     const { sort, filtered_products } = state;
     let tempProducts = [...filtered_products];
     if (sort === "price-lowest") {
@@ -63,11 +63,11 @@ const filter_reducer = (state, action) => {
     }
     return { ...state, filtered_products: tempProducts };
   }
-  if (action.type === "UPDATE_FILTERS") {
+  if (action.type === UPDATE_FILTERS) {
     const { search, value } = action.payload;
     return { ...state, filters: { ...state.filters, [search]: value } };
   }
-  if (action.type === "FILTER_PRODUCTS") {
+  if (action.type === FILTER_PRODUCTS) {
     const { all_products } = state;
     const { text, category, company, price, free_shipping } = state.filters;
 
@@ -102,7 +102,7 @@ const filter_reducer = (state, action) => {
 
     return { ...state, filtered_products: tempProducts };
   }
-  if (action.type === "CLEAR_FILTERS") {
+  if (action.type === CLEAR_FILTERS) {
     return {
       ...state,
       filters: {
@@ -117,8 +117,6 @@ const filter_reducer = (state, action) => {
   }
 
   return state;
-
-  throw new Error(`No Matching "${action.type}" - action type`);
 };
 
 export default filter_reducer;

@@ -6,12 +6,10 @@ import { FaTimes } from "react-icons/fa";
 import { links } from "../utils/constants";
 import styled from "styled-components";
 import CartButtons from "./CartButtons";
-import { useUserContext } from "../context/user_context";
 
 const Sidebar = () => {
   const { toggleSide, closeSideBar } = useProductsContext();
 
-  // `${isOpen ? 'sidebar show-sidebar' : 'show-sidebar'}`
   return (
     <SidebarContainer>
       <aside className={toggleSide ? "sidebar show-sidebar" : "sidebar"}>

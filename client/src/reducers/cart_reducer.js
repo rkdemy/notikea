@@ -7,7 +7,7 @@ import {
 } from "../actions";
 
 const cart_reducer = (state, action) => {
-  if (action.type === "ADD_TO_CART") {
+  if (action.type === ADD_TO_CART) {
     const { id, quantity, product } = action.payload;
     const tempItem = state.cart.find((item) => item.id === id);
 
@@ -36,7 +36,7 @@ const cart_reducer = (state, action) => {
       return { ...state, cart: [...state.cart, newItem] };
     }
   }
-  if (action.type === "COUNT_CART_TOTALS") {
+  if (action.type === COUNT_CART_TOTALS) {
     const { total_quantity, total_amount } = state.cart.reduce(
       (accum, currVal) => {
         let { quantity, price } = currVal;
@@ -51,17 +51,17 @@ const cart_reducer = (state, action) => {
     );
     return { ...state, total_quantity, total_amount };
   }
-  if (action.type === "CLEAR_CART") {
+  if (action.type === CLEAR_CART) {
     return {
       ...state,
       cart: [],
     };
   }
-  if (action.type === "REMOVE_CART_ITEM") {
+  if (action.type === REMOVE_CART_ITEM) {
     const tempCart = state.cart.filter((item) => item.id !== action.payload);
     return { ...state, cart: tempCart };
   }
-  if (action.type === "TOGGLE_CART_ITEM_AMOUNT") {
+  if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
     const { id, value } = action.payload;
     const tempCart = state.cart.map((item) => {
       if (item.id === id) {
@@ -80,9 +80,8 @@ const cart_reducer = (state, action) => {
           }
           return { ...item, quantity: newQuantity };
         }
-      } else {
-        return item;
       }
+      return item;
     });
 
     return { ...state, cart: tempCart };

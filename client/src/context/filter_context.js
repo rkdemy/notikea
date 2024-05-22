@@ -35,26 +35,25 @@ export const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    dispatch({ type: "LOAD_PRODUCTS", payload: products });
+    dispatch({ type: LOAD_PRODUCTS, payload: products });
   }, [products]);
 
   useEffect(() => {
-    dispatch({ type: "FILTER_PRODUCTS" });
-    dispatch({ type: "SORT_PRODUCTS" });
+    dispatch({ type: FILTER_PRODUCTS });
+    dispatch({ type: SORT_PRODUCTS });
   }, [products, state.sort, state.filters]);
 
   const setGridView = () => {
-    dispatch({ type: "SET_GRIDVIEW" });
+    dispatch({ type: SET_GRIDVIEW });
   };
 
   const setListView = () => {
-    dispatch({ type: "SET_LISTVIEW" });
+    dispatch({ type: SET_LISTVIEW });
   };
 
   const updateSort = (event) => {
-    // const name = event.target.name;
     const value = event.target.value;
-    dispatch({ type: "UPDATE_SORT", payload: value });
+    dispatch({ type: UPDATE_SORT, payload: value });
   };
 
   const updateFilters = (event) => {
@@ -69,11 +68,11 @@ export const FilterProvider = ({ children }) => {
     if (search === "shipping") {
       value = event.target.checked;
     }
-    dispatch({ type: "UPDATE_FILTERS", payload: { search, value } });
+    dispatch({ type: UPDATE_FILTERS, payload: { search, value } });
   };
 
   const clearFilters = () => {
-    dispatch({ type: "CLEAR_FILTERS" });
+    dispatch({ type: CLEAR_FILTERS });
   };
 
   const ctx = {
