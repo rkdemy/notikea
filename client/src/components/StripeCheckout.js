@@ -108,6 +108,10 @@ const CheckoutForm = () => {
         </article>
       )}
       <form id="payment-form" onSubmit={handleSubmit}>
+        <p>Card Number: 4242 4242 4242 4242</p>
+        <p>MM/YY: 12/34</p>
+        <p>CSV: 567</p>
+        <p>ZIP: 12345</p>
         <CardElement
           id="card-element"
           options={cardStyle}
